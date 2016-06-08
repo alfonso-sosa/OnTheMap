@@ -8,4 +8,11 @@
 
 import UIKit
 
-
+//Cell used in the table view of user postings
+class OTMTableViewCell : UITableViewCell {
+    
+    //Label with username, next to pin icon.
+    @IBOutlet weak var label: UILabel!
+    
+    
+}

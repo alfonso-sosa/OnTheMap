@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7308D4131D00C3FB00C03B3F /* OTMNetworkActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7308D4121D00C3FB00C03B3F /* OTMNetworkActivityIndicator.swift */; };
+		731523C01C7BE3CD00648B8C /* OTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731523BF1C7BE3CD00648B8C /* OTMConstants.swift */; };
+		73546F681C6CD5C400BD1D64 /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73546F671C6CD5C400BD1D64 /* OTMClient.swift */; };
 		7366DB611C57E5AA002DB979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366DB601C57E5AA002DB979 /* AppDelegate.swift */; };
-		7366DB631C57E5AA002DB979 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366DB621C57E5AA002DB979 /* ViewController.swift */; };
+		7366DB631C57E5AA002DB979 /* OTMLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366DB621C57E5AA002DB979 /* OTMLoginViewController.swift */; };
 		7366DB661C57E5AA002DB979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7366DB641C57E5AA002DB979 /* Main.storyboard */; };
 		7366DB681C57E5AA002DB979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7366DB671C57E5AA002DB979 /* Assets.xcassets */; };
 		7366DB6B1C57E5AA002DB979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7366DB691C57E5AA002DB979 /* LaunchScreen.storyboard */; };
 		7366DB761C57E5AA002DB979 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366DB751C57E5AA002DB979 /* OnTheMapTests.swift */; };
 		7366DB811C57E5AA002DB979 /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366DB801C57E5AA002DB979 /* OnTheMapUITests.swift */; };
+		736CF5281CC2A1DE00800962 /* OTMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736CF5271CC2A1DE00800962 /* OTMTableViewController.swift */; };
+		736CF52A1CC2A77C00800962 /* OTMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736CF5291CC2A77C00800962 /* OTMTableViewCell.swift */; };
+		73B9015B1CD3D4C3005C62C0 /* OTMConfirmLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9015A1CD3D4C3005C62C0 /* OTMConfirmLocationViewController.swift */; };
+		73C211E21CD02D1F0053D003 /* OTMPostLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C211E11CD02D1F0053D003 /* OTMPostLocationViewController.swift */; };
+		73C475B41C9AEF4D001D69EF /* OTMMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C475B31C9AEF4D001D69EF /* OTMMapViewController.swift */; };
+		73C4FC491CC5C2480066EDE3 /* OTMMapDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C4FC481CC5C2480066EDE3 /* OTMMapDataPresenter.swift */; };
+		73D2B5341D030B4C00A52DE3 /* OTMStudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D2B5331D030B4C00A52DE3 /* OTMStudentInformation.swift */; };
+		73D2B5361D04E86500A52DE3 /* OTMDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D2B5351D04E86500A52DE3 /* OTMDateFormatter.swift */; };
+		73D2B5381D04EBE200A52DE3 /* OTMStudentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D2B5371D04EBE200A52DE3 /* OTMStudentData.swift */; };
+		73D4A6101C94F42C00E636FA /* OTMClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D4A60F1C94F42C00E636FA /* OTMClientHelper.swift */; };
+		73D785E31CB7ED0F00A0977D /* OTMViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D785E21CB7ED0F00A0977D /* OTMViewControllerHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7308D4121D00C3FB00C03B3F /* OTMNetworkActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMNetworkActivityIndicator.swift; sourceTree = "<group>"; };
+		731523BF1C7BE3CD00648B8C /* OTMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConstants.swift; sourceTree = "<group>"; };
+		73546F671C6CD5C400BD1D64 /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
 		7366DB5D1C57E5AA002DB979 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7366DB601C57E5AA002DB979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7366DB621C57E5AA002DB979 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7366DB621C57E5AA002DB979 /* OTMLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMLoginViewController.swift; sourceTree = "<group>"; };
 		7366DB651C57E5AA002DB979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7366DB671C57E5AA002DB979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7366DB6A1C57E5AA002DB979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +64,17 @@
 		7366DB7C1C57E5AA002DB979 /* OnTheMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7366DB801C57E5AA002DB979 /* OnTheMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapUITests.swift; sourceTree = "<group>"; };
 		7366DB821C57E5AA002DB979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		736CF5271CC2A1DE00800962 /* OTMTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMTableViewController.swift; sourceTree = "<group>"; };
+		736CF5291CC2A77C00800962 /* OTMTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMTableViewCell.swift; sourceTree = "<group>"; };
+		73B9015A1CD3D4C3005C62C0 /* OTMConfirmLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConfirmLocationViewController.swift; sourceTree = "<group>"; };
+		73C211E11CD02D1F0053D003 /* OTMPostLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMPostLocationViewController.swift; sourceTree = "<group>"; };
+		73C475B31C9AEF4D001D69EF /* OTMMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMMapViewController.swift; sourceTree = "<group>"; };
+		73C4FC481CC5C2480066EDE3 /* OTMMapDataPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMMapDataPresenter.swift; sourceTree = "<group>"; };
+		73D2B5331D030B4C00A52DE3 /* OTMStudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMStudentInformation.swift; sourceTree = "<group>"; };
+		73D2B5351D04E86500A52DE3 /* OTMDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMDateFormatter.swift; sourceTree = "<group>"; };
+		73D2B5371D04EBE200A52DE3 /* OTMStudentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMStudentData.swift; sourceTree = "<group>"; };
+		73D4A60F1C94F42C00E636FA /* OTMClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClientHelper.swift; sourceTree = "<group>"; };
+		73D785E21CB7ED0F00A0977D /* OTMViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMViewControllerHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +102,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73546F641C6CD57B00BD1D64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				731523BF1C7BE3CD00648B8C /* OTMConstants.swift */,
+				73546F671C6CD5C400BD1D64 /* OTMClient.swift */,
+				73D4A60F1C94F42C00E636FA /* OTMClientHelper.swift */,
+				73D2B5351D04E86500A52DE3 /* OTMDateFormatter.swift */,
+				73D2B5331D030B4C00A52DE3 /* OTMStudentInformation.swift */,
+				73D2B5371D04EBE200A52DE3 /* OTMStudentData.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		73546F651C6CD58100BD1D64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				736CF5291CC2A77C00800962 /* OTMTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		73546F661C6CD58E00BD1D64 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7366DB621C57E5AA002DB979 /* OTMLoginViewController.swift */,
+				73C475B31C9AEF4D001D69EF /* OTMMapViewController.swift */,
+				736CF5271CC2A1DE00800962 /* OTMTableViewController.swift */,
+				73C211E11CD02D1F0053D003 /* OTMPostLocationViewController.swift */,
+				73B9015A1CD3D4C3005C62C0 /* OTMConfirmLocationViewController.swift */,
+				73D785E21CB7ED0F00A0977D /* OTMViewControllerHelper.swift */,
+				73C4FC481CC5C2480066EDE3 /* OTMMapDataPresenter.swift */,
+				7308D4121D00C3FB00C03B3F /* OTMNetworkActivityIndicator.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		7366DB541C57E5AA002DB979 = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +161,10 @@
 		7366DB5F1C57E5AA002DB979 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				73546F641C6CD57B00BD1D64 /* Model */,
+				73546F651C6CD58100BD1D64 /* View */,
+				73546F661C6CD58E00BD1D64 /* Controller */,
 				7366DB601C57E5AA002DB979 /* AppDelegate.swift */,
-				7366DB621C57E5AA002DB979 /* ViewController.swift */,
 				7366DB641C57E5AA002DB979 /* Main.storyboard */,
 				7366DB671C57E5AA002DB979 /* Assets.xcassets */,
 				7366DB691C57E5AA002DB979 /* LaunchScreen.storyboard */,
@@ -256,8 +322,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7366DB631C57E5AA002DB979 /* ViewController.swift in Sources */,
+				73D2B5381D04EBE200A52DE3 /* OTMStudentData.swift in Sources */,
+				7366DB631C57E5AA002DB979 /* OTMLoginViewController.swift in Sources */,
+				73B9015B1CD3D4C3005C62C0 /* OTMConfirmLocationViewController.swift in Sources */,
+				73C475B41C9AEF4D001D69EF /* OTMMapViewController.swift in Sources */,
+				73546F681C6CD5C400BD1D64 /* OTMClient.swift in Sources */,
+				736CF52A1CC2A77C00800962 /* OTMTableViewCell.swift in Sources */,
+				73C211E21CD02D1F0053D003 /* OTMPostLocationViewController.swift in Sources */,
+				7308D4131D00C3FB00C03B3F /* OTMNetworkActivityIndicator.swift in Sources */,
+				73C4FC491CC5C2480066EDE3 /* OTMMapDataPresenter.swift in Sources */,
+				736CF5281CC2A1DE00800962 /* OTMTableViewController.swift in Sources */,
+				73D2B5341D030B4C00A52DE3 /* OTMStudentInformation.swift in Sources */,
+				73D785E31CB7ED0F00A0977D /* OTMViewControllerHelper.swift in Sources */,
+				731523C01C7BE3CD00648B8C /* OTMConstants.swift in Sources */,
+				73D4A6101C94F42C00E636FA /* OTMClientHelper.swift in Sources */,
 				7366DB611C57E5AA002DB979 /* AppDelegate.swift in Sources */,
+				73D2B5361D04E86500A52DE3 /* OTMDateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +562,7 @@
 				7366DB871C57E5AA002DB979 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7366DB881C57E5AA002DB979 /* Build configuration list for PBXNativeTarget "OnTheMapTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +571,7 @@
 				7366DB8A1C57E5AA002DB979 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7366DB8B1C57E5AA002DB979 /* Build configuration list for PBXNativeTarget "OnTheMapUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +580,7 @@
 				7366DB8D1C57E5AA002DB979 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

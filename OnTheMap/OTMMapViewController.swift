@@ -9,53 +9,62 @@
 import UIKit
 import MapKit
 
-
-class OTMMapViewController : UIViewController, MKMapViewDelegate {
+//Controller for the map tab view
+class OTMMapViewController : UIViewController, MKMapViewDelegate, OTMMapDataPresenter, OTMNetworkActivityIndicator {
     
-    var mapData : [[String : AnyObject]]?
-    
+    //The map view
     @IBOutlet weak var mapView: MKMapView!
     
+    //Activity indicator
+    var activityIndicator: UIActivityIndicatorView!
+    
+    //Set up spinner, load data, subscribe to notifications
     override func viewDidLoad() {
         super.viewDidLoad()
-        OTMClient.sharedInstance().getStudentLocations(10, skip: 0, order: "updatedAt"){
-            (success, result, errorString) in
-            if success {
-                var annotations = [MKPointAnnotation]()
-                for dictionary in result! {
-                    let lat = CLLocationDegrees(dictionary["latitude"] as! Double)
-                    let long = CLLocationDegrees(dictionary["longitude"] as! Double)
-                    let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                    
-                    let first = dictionary["firstName"] as! String
-                    let last = dictionary["lastName"] as! String
-                    let mediaURL = dictionary["mediaURL"] as! String
-                    
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = coordinate
-                    annotation.title = "\(first) \(last)"
-                    annotation.subtitle = mediaURL
-                    
-                    
-                    
-                    annotations.append(annotation)
-                }
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.mapData = result
-                    self.mapView.addAnnotations(annotations)
-                })
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        activityIndicator.hidesWhenStopped = true
+        self.navigationItem.leftBarButtonItems?.append(UIBarButtonItem(customView: activityIndicator))
+        reloadData({() in
+            self.startActivity()
+            },
+                   after:{() in
+                    self.stopActivity()
             }
-            else {
-                self.displayError("Unable to fetch Map Data")
-            }
+        )
+        subscribeToChangeNotifications()
+    }
+
+    //ViewDidUnload is deprecated to unsubscribe from events. Using didReceiveMemoryWarning, as per http://tewha.net/2012/09/dont-write-viewdidunload/
+    override func didReceiveMemoryWarning() {
+        //Keyboard notifications are no longer necessary
+        unsubscribeFromChangeNotifications()
+    }
+
+    
+    //Creates MKPointAnnotations using the Parse API results and adds them to the map view.
+    func refreshUI() {
+        var annotations = [MKPointAnnotation]()
+        for studentInfo in OTMStudentData.sharedInstance().studentInformationList {
+            let coordinate = CLLocationCoordinate2D(latitude: studentInfo.latitude, longitude: studentInfo.longitude)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = "\(studentInfo.firstName) \(studentInfo.lastName)"
+            annotation.subtitle = studentInfo.mediaUrl            
+            annotations.append(annotation)
         }
+        dispatch_async(dispatch_get_main_queue(), {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            self.mapView.addAnnotations(annotations)
+        })
     }
     
+    //Creates or reuses an MKMPinAnnotationView to display the information stored in an MKPointAnnotation when it is tapped.
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         if let annotation = annotation as? MKPointAnnotation {
             let identifier = "pin"
             var view: MKPinAnnotationView
+
             if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
                 as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
@@ -66,6 +75,7 @@ class OTMMapViewController : UIViewController, MKMapViewDelegate {
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
                 view.animatesDrop = true
+                view.annotation = annotation
             }
             return view
         }
@@ -73,11 +83,9 @@ class OTMMapViewController : UIViewController, MKMapViewDelegate {
         
     }
     
+    //When the MKMPinAnnotationView is tapped, the student's link is opened
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        print("Called")
         if control == view.rightCalloutAccessoryView {
-            print("control \(control)")
-            print("view accessory \(view.rightCalloutAccessoryView)")
             let app = UIApplication.sharedApplication()
             app.openURL(NSURL(string: view.annotation!.subtitle!!)!)
         }
@@ -86,5 +94,40 @@ class OTMMapViewController : UIViewController, MKMapViewDelegate {
         }
     }
     
+    //Reloads students' data
+    @IBAction func reload(sender: UIBarButtonItem) {
+        reloadData({() in
+            self.startActivity()
+            },
+                   after:{() in
+                    self.stopActivity()
+            }
+        )
+    }
+    
+    /**
+     * Begins the flow to post student data.
+     */
+    @IBAction func post(sender: UIBarButtonItem) {
+        postLocation()
+    }
+    
+    /*
+     *Logs out of the application
+     */
+    @IBAction func logout(sender: UIBarButtonItem) {
+        logout({() in
+            self.startActivity()
+            },
+               after:{() in
+                self.stopActivity()
+            }
+        )
+    }
+    
+    //Returns the activity indicator for protocol / trait
+    func getIndicator() -> UIActivityIndicatorView {
+        return activityIndicator
+    }
     
 }
