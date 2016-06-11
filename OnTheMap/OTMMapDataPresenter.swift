@@ -36,11 +36,11 @@ extension OTMMapDataPresenter where Self: UIViewController {
      */
     func reloadData(before:()->Void, after: ()->Void) -> Void {
         before()
-        OTMClient.sharedInstance().getStudentLocations(10, skip: 0, order: "updatedAt"){
+        OTMClient.sharedInstance.getStudentLocations(10, skip: 0, order: "updatedAt"){
             (success, results, errorString) in
             if let results = results where results.count > 0 {
-                OTMStudentData.sharedInstance().studentInformationList.removeAll()
-                OTMStudentData.sharedInstance().studentInformationList.appendContentsOf(results)
+                OTMStudentData.sharedInstance.studentInformationList.removeAll()
+                OTMStudentData.sharedInstance.studentInformationList.appendContentsOf(results)
                 self.refreshUI()
             }
             else {
@@ -56,7 +56,7 @@ extension OTMMapDataPresenter where Self: UIViewController {
      */
     func logout(before: ()->Void, after: ()->Void) {
         before()
-        OTMClient.sharedInstance().logout { (success, result, errorString) in
+        OTMClient.sharedInstance.logout { (success, result, errorString) in
             if success {
                 self.completeLogout()
             }
@@ -72,8 +72,7 @@ extension OTMMapDataPresenter where Self: UIViewController {
      */
     func completeLogout() {
         dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("loginViewController") as! OTMLoginViewController
-            self.presentViewController(controller, animated: true, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: nil)
         })
     }
     

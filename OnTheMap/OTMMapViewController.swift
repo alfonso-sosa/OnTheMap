@@ -44,7 +44,7 @@ class OTMMapViewController : UIViewController, MKMapViewDelegate, OTMMapDataPres
     //Creates MKPointAnnotations using the Parse API results and adds them to the map view.
     func refreshUI() {
         var annotations = [MKPointAnnotation]()
-        for studentInfo in OTMStudentData.sharedInstance().studentInformationList {
+        for studentInfo in OTMStudentData.sharedInstance.studentInformationList {
             let coordinate = CLLocationCoordinate2D(latitude: studentInfo.latitude, longitude: studentInfo.longitude)
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate

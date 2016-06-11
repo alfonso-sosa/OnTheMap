@@ -56,8 +56,8 @@ struct OTMStudentInformation {
         mediaUrl = dictionary["mediaURL"] as? String ?? ""
         latitude = dictionary["latitude"] as? Double ?? 0.0
         longitude = dictionary["longitude"] as? Double ?? 0.0
-        createdAt = OTMDateFormatter.sharedInstance().formatter.dateFromString(dictionary["createdAt"] as! String)
-        updatedAt = OTMDateFormatter.sharedInstance().formatter.dateFromString(dictionary["updatedAt"] as! String)
+        createdAt = OTMDateFormatter.sharedInstance.formatter.dateFromString(dictionary["createdAt"] as! String)
+        updatedAt = OTMDateFormatter.sharedInstance.formatter.dateFromString(dictionary["updatedAt"] as! String)
     }
     
 }

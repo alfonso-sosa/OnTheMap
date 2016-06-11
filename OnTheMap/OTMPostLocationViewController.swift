@@ -55,6 +55,18 @@ class OTMPostLocationViewController : UIViewController, UITextViewDelegate, OTMN
     }
     
     /**
+     * Dismisses keyboard when done.
+     */
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        let resultRange = text.rangeOfCharacterFromSet(NSCharacterSet.newlineCharacterSet(), options: .BackwardsSearch)
+        if text.characters.count == 1 && resultRange?.count > 0 {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    /**
      * Tries to geocode the textview's text. If the process succeeds, the next ViewController is shown with a segue.
      */
     @IBAction func geocodeLocation(sender: UIButton) {

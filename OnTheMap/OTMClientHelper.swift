@@ -157,7 +157,7 @@ extension OTMClient {
                           longitude: Double,
                           completionHandler: (success: Bool, errorString: String?) -> Void){
         //Creates the json body of the request
-        let jsonBody: [String: AnyObject] = ["uniqueKey" : OTMClient.sharedInstance().accountKey!,
+        let jsonBody: [String: AnyObject] = ["uniqueKey" : OTMClient.sharedInstance.accountKey!,
                         "firstName" : firstname,
                         "lastName": lastname,
                         "mapString": mapString,
@@ -233,7 +233,7 @@ extension OTMClient {
                           longitude: Double,
                           completionHandler: (success: Bool, errorString: String?) -> Void){
         //Creates the json body of the request
-        let jsonBody: [String: AnyObject] = ["uniqueKey" : OTMClient.sharedInstance().accountKey!,
+        let jsonBody: [String: AnyObject] = ["uniqueKey" : OTMClient.sharedInstance.accountKey!,
                                              "firstName" : firstname,
                                              "lastName": lastname,
                                              "mapString": mapString,

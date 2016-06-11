@@ -366,12 +366,6 @@ class OTMClient : NSObject {
     
     
     //Singleton pattern
-    class func sharedInstance() -> OTMClient {
-        struct Singleton {
-            static var sharedInstance = OTMClient()
-        }
-        return Singleton.sharedInstance
-    }
-    
+    static let sharedInstance = OTMClient()
     
 }

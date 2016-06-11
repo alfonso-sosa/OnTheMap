@@ -23,10 +23,5 @@ class OTMStudentData {
     
     
     //Singleton pattern
-    class func sharedInstance() -> OTMStudentData {
-        struct Singleton {
-            static var sharedInstance = OTMStudentData()
-        }
-        return Singleton.sharedInstance
-    }
+    static let sharedInstance = OTMStudentData()
 }

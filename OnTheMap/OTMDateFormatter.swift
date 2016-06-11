@@ -23,10 +23,6 @@ class OTMDateFormatter {
     
     
     //Singleton pattern
-    class func sharedInstance() -> OTMDateFormatter {
-        struct Singleton {
-            static var sharedInstance = OTMDateFormatter()
-        }
-        return Singleton.sharedInstance
-    }
+    static let sharedInstance = OTMDateFormatter()
+    
 }

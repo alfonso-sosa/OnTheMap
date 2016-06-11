@@ -49,13 +49,13 @@ class OTMTableViewController : UITableViewController, OTMMapDataPresenter, OTMNe
     
     //Returns the number of rows in the table (1 for each user post in the results)
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return OTMStudentData.sharedInstance().studentInformationList.count
+        return OTMStudentData.sharedInstance.studentInformationList.count
     }
     
     //Dequeues and initializes a table cell with the student first and last name, to be displayed at specified indexPath.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("otmTableViewCell") as! OTMTableViewCell
-        let studentInfo = OTMStudentData.sharedInstance().studentInformationList[indexPath.row]
+        let studentInfo = OTMStudentData.sharedInstance.studentInformationList[indexPath.row]
         cell.label.text = "\(studentInfo.firstName) \(studentInfo.lastName)"
         return cell
     }
@@ -63,7 +63,7 @@ class OTMTableViewController : UITableViewController, OTMMapDataPresenter, OTMNe
     //When the row is tapped, the student's link is opened
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let app = UIApplication.sharedApplication()
-        let studentInfo = OTMStudentData.sharedInstance().studentInformationList[indexPath.row]
+        let studentInfo = OTMStudentData.sharedInstance.studentInformationList[indexPath.row]
         app.openURL(NSURL(string: studentInfo.mediaUrl)!)
     }
     

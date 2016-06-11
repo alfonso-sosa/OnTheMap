@@ -61,6 +61,18 @@ class OTMConfirmLocationViewController : UIViewController, UITextViewDelegate, O
     }
     
     /**
+     * Dismisses keyboard when done.
+     */
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        let resultRange = text.rangeOfCharacterFromSet(NSCharacterSet.newlineCharacterSet(), options: .BackwardsSearch)
+        if text.characters.count == 1 && resultRange?.count > 0 {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    /**
      * Dismisses the operation.
      */
     @IBAction func cancelPost(sender: UIBarButtonItem) {
@@ -102,14 +114,14 @@ class OTMConfirmLocationViewController : UIViewController, UITextViewDelegate, O
                 return
             }
             //Details of the current user, defaults to empty string if missing.
-            let username = OTMClient.sharedInstance().userFirstName ?? ""
+            let username = OTMClient.sharedInstance.userFirstName ?? ""
             //Service returns 400 when last name is an empty string
-            let lastname = OTMClient.sharedInstance().userLastName ?? "n/a"
+            let lastname = OTMClient.sharedInstance.userLastName ?? "n/a"
             let locality = self.placemark?.locality ?? ""
             
             startActivity()
             //Check for previous submissions
-            OTMClient.sharedInstance().getUserPostId(OTMClient.sharedInstance().accountKey!){ (success, postId, error) in
+            OTMClient.sharedInstance.getUserPostId(OTMClient.sharedInstance.accountKey!){ (success, postId, error) in
                 if  success {
                     //Update previously submitted location
                     if let postId = postId {
@@ -117,7 +129,7 @@ class OTMConfirmLocationViewController : UIViewController, UITextViewDelegate, O
                         if let lat = self.placemark?.location?.coordinate.latitude,
                             long = self.placemark?.location?.coordinate.longitude {
                             //Posts the user's location
-                            OTMClient.sharedInstance().updateUserLocation(
+                            OTMClient.sharedInstance.updateUserLocation(
                                 postId,
                                 firstname: username,
                                 lastname: lastname,
@@ -149,7 +161,7 @@ class OTMConfirmLocationViewController : UIViewController, UITextViewDelegate, O
                         if let lat = self.placemark?.location?.coordinate.latitude,
                             long = self.placemark?.location?.coordinate.longitude {
                             //Posts the user's location
-                            OTMClient.sharedInstance().postUserLocation(
+                            OTMClient.sharedInstance.postUserLocation(
                                 username,
                                 lastname: lastname,
                                 mapString: locality,
@@ -164,6 +176,8 @@ class OTMConfirmLocationViewController : UIViewController, UITextViewDelegate, O
                                     else {
                                         //OK, dismiss and go back to tab view.
                                         self.dismissPost()
+                                        //Post notification
+                                        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "reload", object: nil))
                                     }
                             })
                         }

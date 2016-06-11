@@ -94,7 +94,7 @@ class OTMLoginViewController: UIViewController, OTMNetworkActivityIndicator, UIT
         }
         else {
             startActivity()
-            OTMClient.sharedInstance().authenticateWithCredentials(
+            OTMClient.sharedInstance.authenticateWithCredentials(
                 usernameTextField.text!,
                 password: passwordTextField.text!){ (success, errorString) in
                     if let errorString = errorString {
@@ -110,7 +110,7 @@ class OTMLoginViewController: UIViewController, OTMNetworkActivityIndicator, UIT
     
     //If the login call was successful, tries to get the recent posts and continues the login process
     func continueLogin(){
-        OTMClient.sharedInstance().fetchUserPublicData(OTMClient.sharedInstance().accountKey!) { (success, errorString) in
+        OTMClient.sharedInstance.fetchUserPublicData(OTMClient.sharedInstance.accountKey!) { (success, errorString) in
             if let errorString = errorString {
                 self.stopActivity()
                 self.displayError(errorString)
@@ -125,6 +125,8 @@ class OTMLoginViewController: UIViewController, OTMNetworkActivityIndicator, UIT
     func completeLogin() {
         dispatch_async(dispatch_get_main_queue(), {
             self.stopActivity()
+            self.usernameTextField.text=""
+            self.passwordTextField.text=""
             let controller = self.storyboard!.instantiateViewControllerWithIdentifier("tabBarVC") as! UITabBarController
             self.presentViewController(controller, animated: true, completion: nil)
         })
